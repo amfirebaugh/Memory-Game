@@ -2,7 +2,7 @@ import React from 'react';
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-success py-3">
+    <nav className="navbar navbar-expand-sm py-3">
       <div className="container-fluid">
         <div className="col-lg-4">
           <span className="navbar-brand">Doug Funnie Memory Game</span>
