@@ -62,7 +62,7 @@ class App extends Component {
     } else {
       this.gameReset();
     }
-    // randomize(characters);
+    randomize(characters);
   };
 
   checkRepeats = e => {
