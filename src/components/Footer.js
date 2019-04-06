@@ -12,7 +12,9 @@ const Footer = () => {
     <footer className="page-footer page-footer-expand-sm mt-3">
       <div className="container">
         <div className="d-flex flex-row">
-          <h5 className="align-self-center mr-3">Doug Funnie Memory Game!</h5>
+          <h5 className="align-self-center mr-3 font-weight-bold">
+            Doug Funnie Memory Game!
+          </h5>
           <img
             src={doug_logo_2}
             alt="Doug Logo"

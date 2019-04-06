@@ -1,17 +1,19 @@
 import React from 'react';
 
-const NavBar = () => {
+const NavBar = props => {
+  // console.log(props);
   return (
-    <nav className="navbar navbar-expand-sm py-3">
-      <div className="container-fluid">
-        <div className="col-lg-4">
-          <span className="navbar-brand">Doug Funnie Memory Game</span>
+    <nav className="navbar navbar-expand-sm py-3 font-weight-bold">
+      <div className="container">
+        <div className="col-lg-6">
+          <span className="navbar-brand float-left">
+            Doug Funnie Memory Game
+          </span>
         </div>
-        <div className="col-lg-4">
-          <span className="navbar-brand">Click an image to begin!</span>
-        </div>
-        <div className="col-lg-4">
-          <span className="navbar-brand">Score: 0 | Top Score: 0</span>
+        <div className="col-lg-6">
+          <span className="navbar-brand float-right">
+            Score: {props.score} | Top Score: {props.topScore}
+          </span>
         </div>
       </div>
     </nav>

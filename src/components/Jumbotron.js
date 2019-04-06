@@ -1,22 +1,23 @@
 import React from 'react';
-import black_background from '../images/black_background.jpg';
+import music_backgnd_faded from '../images/music_backgnd_faded.jpg';
 
 const sectionStyle = {
   width: '100%',
-  height: '300px',
-  backgroundImage: `url(${black_background})`
+  //   height: '300px',
+  backgroundImage: `url(${music_backgnd_faded})`,
+  color: '#d7f46f'
 };
 
 const Jumbotron = () => {
   return (
     <div className="jumbotron jumbotron-fluid" style={sectionStyle}>
       <div className="container">
-        <h1 className="display-4 text-white">Doug Funnie Memory Game!</h1>
-        <p className="lead text-white">
+        <h1 className="display-4 font-weight-bold">Doug Funnie Memory Game!</h1>
+        <h3 className="font-weight-bold">
           Click on the images to earn points, but be careful! Don't click on a
           character twice, or your score will be reset! Highest possible score
           is 12.
-        </p>
+        </h3>
       </div>
     </div>
   );
