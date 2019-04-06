@@ -51,7 +51,6 @@ class App extends Component {
     // if "isClicked" is false (default in json) is true... (keep in mind we're inside our handleClick method...)
     if (!e.isClicked) {
       // changing the card property isClicked to true
-      // QUESTION: BELOW ISN'T WORKING AND BREAKS FOR MY last IMAGE...?? WHAAAT?!!
       clickedArray.characters[e.id].isClicked = true;
       // console.log(clickedArray.characters[e.id]);
       // console.log('array:' + clickedArray.characters);
