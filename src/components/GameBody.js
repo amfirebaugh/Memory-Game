@@ -1,7 +1,7 @@
 import React from 'react';
 
 const gameBodyStyle = {
-  height: '800px'
+  height: '650px'
 };
 
 const GameBody = props => {

@@ -3,7 +3,6 @@ import music_backgnd_faded from '../images/music_backgnd_faded.jpg';
 
 const sectionStyle = {
   width: '100%',
-  //   height: '300px',
   backgroundImage: `url(${music_backgnd_faded})`,
   color: '#d7f46f'
 };

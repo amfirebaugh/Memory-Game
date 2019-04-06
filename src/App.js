@@ -28,57 +28,97 @@ var randomize = function(array) {
   return array;
 };
 
-randomize(characters);
-
 class App extends Component {
   state = {
     characters,
+    banner: 'Click to begin!',
     score: 0,
-    topScore: 0
+    topScore: 0,
+    selectedChars: []
+  };
+
+  componentDidMount = () => {
+    randomize(characters);
+    console.log(characters);
+    this.setState({
+      characters: characters
+    });
   };
 
   handleClick = e => {
-    console.log('e is:' + e);
     // clickedArray is being declared as a copy of the state, which is necessary for line the line below where we change the isClicked attribute to true
-    const clickedArray = { ...this.state };
+    let clickedArray = { ...this.state };
     // if "isClicked" is false (default in json) is true... (keep in mind we're inside our handleClick method...)
     if (!e.isClicked) {
       // changing the card property isClicked to true
-      clickedArray.characters[e.id - 1].isClicked = true;
-      console.log(clickedArray);
+      // QUESTION: BELOW ISN'T WORKING AND BREAKS FOR MY last IMAGE...?? WHAAAT?!!
+      clickedArray.characters[e.id].isClicked = true;
+      // console.log(clickedArray.characters[e.id]);
+      // console.log('array:' + clickedArray.characters);
+
       // setState of App to this new array as character cards are clicked
       this.setState(clickedArray);
-      console.log('state:' + this.state.clickedArray);
       this.handleScore();
     } else {
       this.gameReset();
     }
-    randomize(characters);
+    // randomize(characters);
+  };
+
+  checkRepeats = e => {
+    let { id } = e.target;
+    this.setState({
+      id: id
+    });
+
+    if (this.state.selectedChars.includes(this.state.id)) {
+      this.setState({
+        banner: 'You guessed wrong!',
+        score: 0,
+        selectedChars: []
+      });
+    }
+    console.log('checking repeats:' + this.state.selectedChars);
   };
 
   handleScore = () => {
+    // when score reaches 12 call gameReset
     if (this.state.score === 12) {
       this.gameReset();
     } else {
+      // else increment score by 1
       this.setState({
         score: this.state.score + 1
       });
     }
   };
 
-  storeTopScore = () => {};
+  storeTopScore = () => {
+    let storeScore = this.state.score;
+    let storeTopScore = this.state.topScore;
+    if (storeScore > storeTopScore) {
+      storeTopScore = storeScore;
+    }
+  };
 
   gameReset = () => {
-    alert('Game Over! Click ok to keep playing...');
+    // empty the score and change banner
     this.setState({
-      score: 0
+      score: 0,
+      banner: 'Game Over!'
     });
   };
 
   render() {
     return (
       <div className="App">
-        <NavBar score={this.state.score} handleScore={this.handleScore} />
+        <NavBar
+          score={this.state.score}
+          topScore={this.state.topScore}
+          banner={this.state.banner}
+          handleScore={this.handleScore}
+          storeTopScore={this.storeTopScore}
+        />
         <Jumbotron />
         <GameBody>
           {this.state.characters.map(character => (

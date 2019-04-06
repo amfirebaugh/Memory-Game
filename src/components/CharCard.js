@@ -1,7 +1,7 @@
 import React from 'react';
 
 const cardStyle = {
-  maxHeight: '200px',
+  maxHeight: '150px',
   objectFit: 'cover',
   objectPosition: '0 0'
 };
