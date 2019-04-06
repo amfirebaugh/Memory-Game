@@ -8,6 +8,7 @@ import characters from './characters.json';
 import './App.css';
 
 // randomize characters from json
+// ALLIE: GO THROUGH AND RENAME SOME OF THESE TO MAKE IT READABLE FOR OTHERS:
 var randomize = function(array) {
   // store the current array length in this variable so we make sure it's not empty
   var currentIndex = array.length;
